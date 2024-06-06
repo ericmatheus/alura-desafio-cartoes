@@ -21,9 +21,9 @@ public class Main {
                 break;
             case 2:
 
-                System.out.println("CADASTRO DE COMPRA: ");
+                System.out.println("========== CADASTRO DE COMPRA: ==========");
                 Banco.mostraCartoes();
-                System.out.println("Digite o nome do cartao");
+                System.out.println("Digite o NOME do cartao");
                 Scanner getData2 = new Scanner(System.in);
                 String nome = getData2.nextLine();
                 cartaoTemporario = Banco.buscaCartaoPorNome(nome);

@@ -15,6 +15,10 @@ public class Produto {
 
     @Override
     public String toString() {
-        return "Compra: " + nome + "Valor: " + valor;
+        return "Compra: " + nome + "| Valor: " + valor;
+    }
+
+    public double getValor() {
+        return valor;
     }
 }

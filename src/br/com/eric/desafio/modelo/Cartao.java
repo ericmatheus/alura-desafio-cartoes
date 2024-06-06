@@ -7,7 +7,14 @@ import java.util.Scanner;
 public class Cartao {
     String nome;
     double valorLimite;
+    double saldo;
     List<Produto> listaProdutos = new ArrayList<>();
+
+    public Cartao(String nome, double valorLimite){
+        this.valorLimite = valorLimite;
+        this.saldo = valorLimite;
+        this.nome = nome;
+    }
 
     public void listarCompras(){
         for(Produto produto : listaProdutos){
@@ -23,7 +30,13 @@ public class Cartao {
         produto.setNome(getData.nextLine());
         System.out.println("Valor: ");
         produto.setValor(getData.nextDouble());
-        listaProdutos.add(produto);
+        if(produto.getValor() > this.saldo){
+            System.out.println("SALDO INSUFICIENTE!!!");
+        }else {
+            listaProdutos.add(produto);
+            saldo -= produto.getValor();
+            System.out.println("COMPRA ACEITA!");
+        }
     }
 
     public void setNome(String nome) {
@@ -40,6 +53,6 @@ public class Cartao {
 
     @Override
     public String toString() {
-        return "Nome: " + nome + " - Limite: " + valorLimite;
+        return "Nome: " + nome + "| - Limite: " + valorLimite + "| Saldo: " + saldo;
     }
 }
